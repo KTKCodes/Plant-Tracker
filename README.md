@@ -105,6 +105,6 @@ You should now see the Plant Tracker homepage, styled correctly. You can add new
 ***
 
 ## Usage
-**Homepage/index/myplants:** Displays all your added plant cards and an "Add New Plant" button.
-**Add New Plant:** Click the "Add New Plant" card to open a modal form. Fill in the details and submit to add a new plant to your collection.
-**Plant Details:** Click on any plant card to view its individual detail page.
+- **Homepage/index/myplants:** Displays all your added plant cards and an "Add New Plant" button.
+- **Add New Plant:** Click the "Add New Plant" card to open a modal form. Fill in the details and submit to add a new plant to your collection.
+- **Plant Details:** Click on any plant card to view its individual detail page.
