@@ -54,7 +54,7 @@ Paste the following SQL command into the query window and execute it (lightning 
 ### 3. Project Setup
 **Clone the Repository:**
 
-git clone <https://github.com/KTKCodes/Plant-Tracker>
+git clone <https://github.com/KTKCodes/Plant-Tracker>  
 cd plant_tracker_project
 
 **Navigate to Backend:**
