@@ -1,0 +1,217 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #f7dac6;
+}
+
+body p a {
+    font-family: sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1em;
+}
+
+.navlinks {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: #192815;
+    transition: all .5s ease;
+}
+
+li a:hover {
+    background-color: #8DB143;
+    transition: all .5s ease;
+    border-radius: 15px;
+}
+
+#card_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px; /* Space between cards */
+    padding: 20px; /* Padding around the whole grid */
+    max-width: 1200px; /* Max width for the grid */
+    margin: 0 auto; /* Center the grid */
+}
+
+#add_card {
+    background-color: #8DB143;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensures image corners are rounded */
+    transition: all .5s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#add_card h2 {
+    padding: 12px;
+    color: white;
+    } 
+
+#add_card .plus-icon {
+    padding: 1.5rem;
+    font-size:6rem;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.plant_card {
+    background-color: #8DB143;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensures image corners are rounded */
+    display: flex; /* Use flexbox to arrange content INSIDE the card */
+    flex-direction: column;
+    justify-content: space-between; /* Pushes button to bottom if content varies */
+    transition: all .5s ease;
+    cursor: pointer;
+}
+
+.plant_img {
+    width: 100%;
+    height: 250px; /* Fixed height for consistent image size */
+    object-fit: cover;
+    display: block;
+}
+
+.plant_card h3 {
+    padding: 15px;
+    margin-bottom: 0;
+    font-size: 1.2em;
+}
+
+.plant_card p {
+    padding: 0 15px 15px;
+    font-size: 1em;
+    flex-grow: 1; /* Allows paragraphs to take up available space */
+}
+
+.plant_card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transform: translate3D(0,-1px,0) scale(1.03);
+    background-color: #192815;
+    color: white;
+    transition: all .5s ease;
+}
+
+#add_card:hover {
+    background-color: #192815;
+    transition: all .5s ease;
+    transform: translate3D(0,-1px,0) scale(1.03);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    color: white;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; /* Hidden by default */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.modal-content .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.875rem; /* Equivalent to text-sm */
+    font-weight: 500;
+    color: #000000; /* Equivalent to text-gray-700 */
+    margin-bottom: 0.25rem;
+}
+
+.form-title {
+    display: flex;
+    justify-content: center;
+    padding: 6px 6px 14px 6px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.375rem; /* Equivalent to rounded-md */
+    border: 1px solid #d1d5db; /* Equivalent to border-gray-300 */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Equivalent to shadow-sm */
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #8DB143; /* Equivalent to focus:border-[#8DB143] */
+    box-shadow: 0 0 0 3px rgba(141, 177, 67, 0.5); /* Equivalent to focus:ring */
+}
+
+.form-button {
+    width: 100%;
+    background-color: #8DB143;
+    color: white;
+    font-weight: 700;
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    transition: background-color 0.3s ease;
+}
+
+.form-button:hover {
+    background-color: #6B8E23;
+    transition: .4s ease-in-out;
+}
