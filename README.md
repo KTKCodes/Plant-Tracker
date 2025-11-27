@@ -1,5 +1,6 @@
 # Plant Tracker
-A full-stack web application designed to help plant enthusiasts keep track of their plant collection. Users can add new plants, view their details, and manage their collection.
+An application to help people who bought too many plants and are now overwhelmed and don't know when they last watered them, fed them, or gave them any kind of love.
+Surely not just a me problem...
 
 ## Features
 - Plant Management: Add, view, and manage details for each plant in your collection.
@@ -7,16 +8,8 @@ A full-stack web application designed to help plant enthusiasts keep track of th
 - Intuitive Interface: Easy-to-use form for adding new plants with details like name, species, last watered date, purchase date, and image URL.
 - Responsive Design: A clean and simple interface, adaptable for various screen sizes.
 
-## Technologies Used
-- Node.js: Server-side JavaScript runtime.
-- Express.js: Web framework for Node.js.
-- PostgreSQL: Open-source relational database system.
-- PG (Node-Postgres): Non-blocking PostgreSQL client for Node.js.
-- EJS (Embedded JavaScript): Templating engine to generate dynamic HTML.
-- HTML5: Structure of the web pages.
-- CSS3: Styling of the application.
-- JavaScript: Client-side interactivity (e.g., modal functionality).
-- Font Awesome: Icons for user interface elements.
+## Stack
+- Node.js, Express.js, PostgreSQL PGAdmin, EJS, HTML5, CSS3, JavaScript.
 
 ## Setup Instructions
 You can follow these steps to get the Plant Tracker application up and running on your local machine.
@@ -27,7 +20,7 @@ PostgreSQL: Install PostgreSQL. The interactive installer for Windows is recomme
 Git: For cloning the repository. Download from git-scm.com.
 
 ### 2. Database Setup
-Install PostgreSQL: If you haven't already, install PostgreSQL using the interactive installer. Remember the password you set for the postgres user.
+Install PostgreSQL: If you haven't already done so, install PostgreSQL using the interactive installer. Remember the password you set for the postgres user.
 Open pgAdmin: Launch pgAdmin (usually installed with PostgreSQL).
 
 **Create Database:**
