@@ -1,75 +1,36 @@
-/* Colours: 
-#606c38 olive - mid green, 
-#283618 dark green, 
-#fefae0 cream (background), 
-#dda15e lighter orange, 
-#bc6c25 deep orange */
-
-* {
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
-}
-
-body {
-    background-color: #fefae0;
-}
-
-a {
-    font-family: 'Open sans', sans-serif;
-}
-
-h1 {
-    font-family: 'Pacifico', sans-serif;
-}
-
-#logo {
-    color: #283618;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-evenly;
-    padding: 1em;
-}
-
-.navlinks {
+.navbar__list {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
-.navlinks li {
+.navbar__item {
     float: left;
 }
 
-.navlinks li a {
+.navbar__link {
     display: block;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    color: #bc6c25;
+    color: var(--color-accent-terracotta);
     transition: all .5s ease-in-out;
 }
 
-.navlinks li a:hover {
+.navbar__link:hover {
     transition: all .5s ease-in-out;
     border-radius: 15px;
-    text-shadow:0px 0px 1px #bc6c25;
+    text-shadow:0px 0px 1px var(--color-accent-terracotta);
 }
 
-#card_grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px; /* Space between cards */
-    padding: 20px; /* Padding around the whole grid */
-    max-width: 1200px; /* Max width for the grid */
-    margin: 0 auto; /* Center the grid */
+.navbar__logo {
+    color: var(--color-primary-green);
+    font-size: 3rem;
 }
 
-#add_card {
-    border: 1px solid #606c38;
-    background-color: #fefae0;
+.add-card {
+    border: 1px solid var(--color-primary-green);
+    background-color: var( --color-background-cream);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden; /* Ensures image corners are rounded */
@@ -82,49 +43,35 @@ h1 {
     cursor: pointer;
 }
 
-#add_card h2 {
+.add-card h2 {
     padding: 12px;
-    color: #606c38;
+    color: var(--color-primary-green);
     transition: color .5s ease;
  } 
 
-#add_card .plus-icon {
+.add-card__icon {
     padding: 1.5rem;
     font-size:6rem;
-    color: #283618;
+    color: var(--color-primary-green);
     margin-bottom: 1rem;
     transition: color .5s ease;
 }
 
-#add_card:hover {
-    background-color: #606c38;
+.add-card:hover {
+    background-color: var(--color-primary-green);
     transition: all .5s ease;
     transform: translate3D(0,-1px,0) scale(1.03);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    border: #606c38;
+    border: var(--color-primary-green);
 }
 
-#add_card:hover h2 {
-    color: #fefae0;
-    font-family: "Pacifico", sans-serif;
-    transition: all .5s ease;
+.add-card:hover h2 {
+    color: var( --color-background-cream);
+    transition: all .3s ease;
 }
 
-#add_card:hover .plus-icon {
-    color: #fefae0;
-}
-
-#form_modal_overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: none; 
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+.add-card:hover .plus-icon {
+    color: var( --color-background-cream);
 }
 
 #close_modal_btn {
@@ -136,8 +83,8 @@ h1 {
     color: #333;
 } 
 
-.plant_card {
-    background-color: #606c38;
+.plant-card {
+    background-color: var(--color-primary-green);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden; /* Ensures image corners are rounded */
@@ -148,36 +95,36 @@ h1 {
     cursor: pointer;
 }
 
-.plant_img {
+.plant-card__img {
     width: 100%;
     height: 250px; 
     object-fit: cover;
     display: block;
 }
 
-.plant_card h3 {
+.plant-card h3 {
     padding: 15px;
     margin-bottom: 0;
     font-size: 1.2em;
 }
 
-.plant_card p {
+.plant-card p {
     padding: 0 15px 15px;
     font-size: 1em;
     flex-grow: 1; 
 }
 
-.plant_card:hover {
+.plant-card:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     transform: translate3D(0,-1px,0) scale(1.03);
-    background-color: #192815;
-    color: white;
+    background-color: var(--color-primary-green);
+    color: var(--color-background-cream);
     transition: all .5s ease;
 }
 
-.modal_content {
-    background: #606c38;
-    color: #fefae0;
+.modal-content {
+    background: var(--color-primary-green);
+    color: var( --color-background-cream);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
@@ -186,53 +133,53 @@ h1 {
     position: relative;
 }
 
-.form_container {
+.form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-.form_group {
+.form__group {
     margin-bottom: 1rem;
 }
 
-.form_label {
+.form__label {
     display: block;
     font-size: 0.875rem; /* Equivalent to text-sm */
     font-weight: 500;
-    color: #fefae0;
+    color: var( --color-background-cream);
     font-family: 'Open sans', sans-serif;
     margin-bottom: 0.25rem;
 }
 
-.form_title {
+.form__title {
     display: flex;
     font-family: "Pacifico", sans-serif;
     justify-content: center;
     padding: 6px 6px 14px 6px;
 }
 
-.form_input {
+.form__input {
     width: 100%;
     padding: 0.5rem;
-    border-radius: 0.375rem; /* Equivalent to rounded-md */
-    border: 1px solid #283618; 
-    background-color: #fefae0;
+    border-radius: 0.375rem; 
+    border: 1px solid var(--color-primary-green); 
+    background-color: var( --color-background-cream);
     font-family: 'Open sans', sans-serif;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Equivalent to shadow-sm */
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); 
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.form_input:focus {
+.form__input:focus {
     outline: none;
-    border-color: #606c38; /* Equivalent to focus:border-[#8DB143] */
-    box-shadow: 0 0 0 3px rgba(141, 177, 67, 0.5); /* Equivalent to focus:ring */
+    border-color: var(--color-primary-green); 
+    box-shadow: 0 0 0 3px rgba(141, 177, 67, 0.5);
 }
 
-.form_button {
+.form__button {
     width: 100%;
-    background-color: #dda15e;
-    color: #fefae0;
+    background-color: var(--color-accent-terracotta);
+    color: var( --color-background-cream);
     font-weight: 700;
     padding: 0.5rem 1rem;
     border-radius: 0.375rem;
@@ -240,7 +187,8 @@ h1 {
     transition: background-color 0.3s ease;
 }
 
-.form_button:hover {
-    background-color: #bc6c25;
+.form__button:hover {
+    background-color: var(--color-accent-terracotta);
     transition: .4s ease-in-out;
+
 }
