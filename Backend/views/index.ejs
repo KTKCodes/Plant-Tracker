@@ -11,42 +11,55 @@
     <link rel="stylesheet" href="/styles/base.css">
     <link rel="stylesheet" href="/styles/components.css">
     <link rel="stylesheet" href="/styles/layout.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
     <div class="navbar">
-        <h1 class="navbar__logo">Plant Tracker</h1>
+
+        <div class="navbar__brand"> 
+            <img src="/assets/plant tracker logo.svg" alt="Leaf Icon" class="navbar__icon">
+            <h1 class="navbar__logo">Plant Tracker</h1>
+        </div>
+
         <ul class="navbar__list">
             <li class="navbar__item"><a href="/pages/dashboard.html" class="navbar__link">Dashboard</a></li>
-            <li class="navbar__item"><a href="index.ejs" class="navbar__link">My Plants</a></li>
+            <li class="navbar__item"><a href="index.ejs" class="navbar__link__active">My Plants</a></li>
             <li class="navbar__item"><a href="/pages/settings.html" class="navbar__link">Settings</a></li>
             <li class="navbar__item"><a href="/pages/wishlist.html" class="navbar__link">Wishlist</a></li>
         </ul>
+
     </div>
 
     <div class="dashboard-layout__grid">
-        <% plants.forEach(plant => { %>
-            <a href="/plants/<%= plant.id %>" class="plant-card__link">
-                <div class="plant-card">
-                    <img class="plant-card__img" src="<%= plant.image_url %>" alt="<%= plant.name %>">
-                    <h3><%= plant.name %></h3>
-                    <p><%= plant.species %> <br> Last Watered: <%= plant.last_watered %> <br> Purchased on: <%= plant.purchase_date %></p>
-                </div>
-            </a>
-        <% }); %>
-    
+        <% if (plants && plants.length > 0) { %>
+            <% plants.forEach(plant => { %>
+                <a href="/plants/<%= plant.id %>" class="plant-card__link">
+                    <div class="plant-card">
+                        <img class="plant-card__img" src="<%= plant.image_url %>" alt="<%= plant.name %>">
+                        <h3><%= plant.name %></h3>
+                        <p>
+                            <%= plant.species %> <br> 
+                            Last Watered: <%= formatDate(plant.last_watered) %> <br> 
+                            Purchased on: <%= formatDate(plant.purchase_date) %>
+                        </p>
+                    </div>
+                </a>
+            <% }); %>
+        <% } else { %>
+            <p>No plants added yet!</p>
+        <% } %>
 
         <button class="add-card">
             <i class="fa-solid fa-plus plus-icon"></i>
             <h2>Add New Plant</h2>
         </button>
     </div>
+          
 
     <div class="modal-overlay">
             <div class="modal-content">
@@ -55,7 +68,7 @@
                 <form action="/plants" method="POST" class="form">
                     <div class="form__group">
                         <label for="plant_name" class="form__label">Plant Name</label>
-                        <input type="text" id="plant_name" name="name" class="form__input" required>
+                        <input type="text" id="plant_name" name="name" class="form__input" autocomplete="off" required>
                     </div>
                     <div class="form__group">
                         <label for="plant_species" class="form__label">Plant Species</label>
@@ -66,7 +79,7 @@
                         <input type="date" id="last_watered" name="lastWatered" class="form__input">
                     </div>
                     <div class="form__group">
-                        <label for="purchase-date" class="form__label">Date of Purchase</label>
+                        <label for="purchase_date" class="form__label">Date of Purchase</label>
                         <input type="date" id="purchase_date" name="purchaseDate" class="form__input">
                     </div>
                     <div class="form__group">

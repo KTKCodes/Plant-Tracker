@@ -1,24 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('plant-form');
-    const cardsContainer = document.getElementsByClassName('dashboard-layout__grid');
-    const addPlantCard = document.getElementsByClassName('add-card');
-    const modalOverlay = document.getElementsByClassName('modal-overlay');
-    const closeModalBtn = document.getElementById('close_modal_btn');
+    const form = document.querySelector('.form');
+    const cardsContainer = document.querySelector('.dashboard-layout__grid');
+    const addPlantCard = document.querySelector('.add-card');
+    const modalOverlay = document.querySelector('.modal-overlay');
+    const closeModalBtn = document.querySelector('#close_modal_btn');
 
-// Function to open the modal
-addPlantCard.addEventListener('click', () => {
-    modalOverlay.style.display = 'flex';
-});
+    // Helper function to handle both UI and Scroll Lock
+    const toggleModal = (isOpen) => {
+        if (!modalOverlay) return; // Safety check
+        document.body.classList.toggle('modal-open', isOpen);
+    };
 
-// Function to close the modal
-closeModalBtn.addEventListener('click', () => {
-    modalOverlay.style.display = 'none';
-});
+    // Open
+    addPlantCard?.addEventListener('click', () => toggleModal(true));
 
-// Close modal when clicking outside the content
-modalOverlay.addEventListener('click', (e) => {
-    if (e.target === modalOverlay) {
-        modalOverlay.style.display = 'none';
-    }
-});
+    // Close via Button
+    closeModalBtn?.addEventListener('click', () => toggleModal(false));
+
+    // Close via Clicking Background
+    modalOverlay?.addEventListener('click', (e) => {
+        if (e.target === modalOverlay) toggleModal(false);
+    });
+
+    // Close via Escape Key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') toggleModal(false);
+    });
 });

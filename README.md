@@ -72,7 +72,7 @@ Locate the Pool configuration and update the user and password fields with your 
     `port: 5432,`  
 `});`  
 
-Move Static Assets: Ensure your styles.css is in backend/public/styles/ and your myplants.js (simplified for modal only) is in backend/public/scripts/. Also, ensure other static HTML pages (dashboard.html, settings.html, wishlist.html) are in backend/public/pages/.
+Move Static Assets: Ensure your styles.css is in backend/public/styles/ and your myplants.js (simplified for modal only) is in backend/public/scripts/. 
 
 ***
 
