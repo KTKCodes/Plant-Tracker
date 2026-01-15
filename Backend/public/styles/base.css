@@ -1,27 +1,27 @@
 :root {
-  --color-background-cream: #fcf3ea; 
-  --color-primary-green: #6da676;    
-  --color-dark-green: #47644a; 
-  --color-text-charcoal: #3D332F;    
+  --color-background-cream: #fcf3ea;
+  --color-primary-green: #6da676;
+  --color-dark-green: #47644a;
+  --color-text-charcoal: #3d332f;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
 }
 
 body {
-    background-color: var(--color-background-cream);
+  background-color: var(--color-background-cream);
 }
 
 a {
-    font-family: "Roboto", sans-serif;
-    text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
 }
 
 h1 {
-    font-family: 'Pacifico', sans-serif;
+  font-family: "Pacifico", sans-serif;
 }
 
 .pacifico-regular {
