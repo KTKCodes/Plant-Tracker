@@ -2,7 +2,7 @@
 An application to help people who bought too many plants and are now overwhelmed and don't know when they last watered them, fed them, or gave them any kind of love.
 Surely not just a me problem...
 
-## Features
+## Planned Features
 - Plant Management: Add, view, and manage details for each plant in your collection.
 - Dynamic Content: Plant cards are dynamically loaded from a PostgreSQL database.
 - Intuitive Interface: Easy-to-use form for adding new plants with details like name, species, last watered date, purchase date, and image URL.
