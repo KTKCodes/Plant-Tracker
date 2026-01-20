@@ -4,6 +4,8 @@ const plantController = require("../controllers/plantController");
 
 console.log("Checking controller:", plantController);
 
-router.get("/:id", plantController.getPlantDetail);
+router.get("/", plantController.getHomePage);
+router.get("/plants/:id", plantController.getPlantDetail);
+router.post("/plants", plantController.createPlant);
 
 module.exports = router;
