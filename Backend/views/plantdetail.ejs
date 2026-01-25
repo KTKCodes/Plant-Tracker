@@ -3,28 +3,31 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title><%= plant.name %></title>
-
+    <title><%= plant.name %> - Details </title>
     <link rel="stylesheet" href="/styles/base.css">
     <link rel="stylesheet" href="/styles/components.css">
-    <link rel="stylesheet" href="/styles/layout.c
+    <link rel="stylesheet" href="/styles/modal.css" />
+    <link rel="stylesheet" href="/styles/layout.css">
 <body>
 
-    <main>
-
-        <h1><%= plant.name %></h1>
-        <img src="<%= plant.image_url %>" alt="<%= plant.name %>">
+<main class="plant-container">
+    <h1><%= plant.name %></h1>
+    <img src="<%= plant.image_url %>" alt="<%= plant.name %>" style="max-width: 400px;">
+        
+    <div class="plant-info">
         <p><strong>Species:</strong> <%= plant.species %></p>
-        <p><strong>Last Watered:</strong> <%= plant.last_watered %></p>
-        <p><strong>Purchased on:</strong> <%= plant.purchase_date %></p>
-        <a href="/">Back to My Plants</a>
+        <p><strong>Last Watered:</strong> <%= formatDate(plant.last_watered) %></p>
+        <p><strong>Purchased on:</strong> <%= formatDate(plant.purchase_date) %></p>
+    </div>
 
-    </main>
+    <a href="/">Back to My Plants</a>
+
+</main>
+
 <script src="/scripts/myplants.js"></script>
+
 </body>
 
 </html>
