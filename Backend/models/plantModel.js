@@ -12,10 +12,11 @@ const Plant = {
   },
 
   // CREATE a plant (For modal)
-  create: async (name, species, imageUrl, lastWatered, purchaseDate) => {
+  create: async (name, species, image_url, last_watered, purchase_date) => {
+    console.log("--- SYSTEM CHECK: TRIGGERING CREATE MODEL ---");
     const result = await pool.query(
-      "INSERT INTO plants (name, species, imageUrl, lastWatered, purchaseDate) VALUES ($1, $2, $3, $4, $5) RETURNING id",
-      [name, species, imageUrl, lastWatered, purchaseDate],
+      "INSERT INTO plants (name, species, image_url, last_watered, purchase_date) VALUES ($1, $2, $3, $4, $5) RETURNING id",
+      [name, species, image_url, last_watered, purchase_date],
     );
     return result.rows[0].id; // Return the new ID so we can redirect to it
   },

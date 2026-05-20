@@ -10,24 +10,61 @@
     <link rel="stylesheet" href="/styles/components.css">
     <link rel="stylesheet" href="/styles/modal.css" />
     <link rel="stylesheet" href="/styles/layout.css">
+</head>
+
 <body>
 
-<main class="plant-container">
-    <h1><%= plant.name %></h1>
-    <img src="<%= plant.image_url %>" alt="<%= plant.name %>" style="max-width: 400px;">
-        
-    <div class="plant-info">
-        <p><strong>Species:</strong> <%= plant.species %></p>
-        <p><strong>Last Watered:</strong> <%= formatDate(plant.last_watered) %></p>
-        <p><strong>Purchased on:</strong> <%= formatDate(plant.purchase_date) %></p>
-    </div>
+<main>
 
-    <a href="/">Back to My Plants</a>
+    <header class="plant-header">
+        <h1><%= plant.name %></h1>
+        <img src="<%= plant.image_url %>" alt="<%= plant.name %>" style="max-width: 400px;">
+    </header>
+    
+    <div class="columns-container">
+
+        <!-- LEFT COLUMN -->
+        <aside class="plant-sidebar">
+            <div class="quick-actions">
+                <button class="btn-water">Watered Today</button>
+                <button id="open-log-modal-btn" class="btn-log">Add Log Entry</button>
+            </div> 
+
+            <div class="plant-info">
+                <h3>Plant Profile</h3>
+                <p><strong>Species:</strong> <%= plant.species %></p>
+                <p><strong>Last Watered:</strong> <%= formatDate(plant.last_watered) %></p>
+                <p><strong>Purchased on:</strong> <%= formatDate(plant.purchase_date) %></p>
+                <p><strong>Substrate:</strong></p>
+                <p><strong>Status:</strong> Healthy</p>
+            </div>
+   
+            <a href="/" class="back-link">Back to My Plants</a>
+        </aside>
+
+        <!--RIGHT COLUMN-->
+        <main class="plant-journal">
+            <h2>Care Journal</h2>
+
+            <div class="log-list">
+                <!--FAKE ENTRIES-->
+                <div class="log-item pest-alert">
+                    <span class="log-date">20th May 2026</span>
+                    <h4>Pest Treatment</h4>
+                    <p>Spotted some thrips on the lower leaves. Treated with alcohol spray and wiped down.</p>
+                </div>
+                <div class="log-item routine-care">
+                    <span class="log-date">14th May 2026</span>
+                    <h4>Routine Care</h4>
+                    <p>Noticed a brand new leaf coming through!</p>
+                </div>
+            </div>
+        </main>
+    </div>
 
 </main>
 
 <script src="/scripts/myplants.js"></script>
-
 </body>
 
 </html>

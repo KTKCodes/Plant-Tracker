@@ -30,18 +30,18 @@ exports.getHomePage = async (req, res) => {
 };
 
 exports.createPlant = async (req, res) => {
-  const { name, species, imageUrl, lastWatered, purchaseDate } = req.body;
+  const { name, species, image_url, last_watered, purchase_date } = req.body;
 
   try {
     const newPlantId = await Plant.create(
       name,
       species,
-      imageUrl,
-      lastWatered,
-      purchaseDate,
+      image_url,
+      last_watered,
+      purchase_date,
     );
 
-    (res, redirect(`/plants/${newPlantId}`));
+    (res.redirect(`/plants/${newPlantId}`));
   } catch (err) {
     console.error(err);
     res.status(500).send("Error adding plant");
