@@ -1,103 +1,66 @@
-# Plant Tracker
-An application to help people who bought too many plants and are now overwhelmed and don't know when they last watered them, fed them, or gave them any kind of love.
-Surely not just a me problem...
+# 🌿 Plant Tracker
+An application for those of us who buy too many plants and then get overwhelmed. Track watering, feeding, and "plant love" schedules in one place.
 
-## Planned Features
-- Plant Management: Add, view, and manage details for each plant in your collection.
-- Dynamic Content: Plant cards are dynamically loaded from a PostgreSQL database.
-- Intuitive Interface: Easy-to-use form for adding new plants with details like name, species, last watered date, purchase date, and image URL.
-- Responsive Design: A clean and simple interface, adaptable for various screen sizes.
+## 🚀 Recent Updates
+- **Security First:** Updated to use a dedicated database user with restricted permissions.
+- **Workflow:** Integrated `nodemon` for a seamless developer experience.
 
-## Stack
-- Node.js, Express.js, PostgreSQL PGAdmin, EJS, HTML5, CSS3, JavaScript.
+## 🛠 The Stack
+- **Backend:** Node.js, Express.js
+- **Database:** PostgreSQL (managed via pgAdmin)
+- **Frontend:** EJS, HTML5, CSS3, JavaScript
 
-## Setup Instructions
-You can follow these steps to get the Plant Tracker application up and running on your local machine.
+---
+
+## ⚙️ Setup Instructions
 
 ### 1. Prerequisites
-Node.js: Make sure you have Node.js and npm installed. Download from nodejs.org.
-PostgreSQL: Install PostgreSQL. The interactive installer for Windows is recommended. Download from postgresql.org.
-Git: For cloning the repository. Download from git-scm.com.
+- **Node.js**: [Download here](https://nodejs.org/)
+- **PostgreSQL**: [Download here](https://www.postgresql.org/)
+- **Git**: [Download here](https://git-scm.com/)
 
-### 2. Database Setup
-Install PostgreSQL: If you haven't already done so, install PostgreSQL using the interactive installer. Remember the password you set for the postgres user.
-Open pgAdmin: Launch pgAdmin (usually installed with PostgreSQL).
+### 2. Database & Security Setup
+To keep your database secure, we use a dedicated user rather than the "superuser."
 
-**Create Database:**
+1. **Create Database:** In pgAdmin, create a database named `plant_tracker`.
+2. **Create User:** - Right-click "Login/Group Roles" -> Create -> "app_user".
+   - Set a password in the "Definition" tab.
+3. **Run Schema:** Open the Query Tool on your new database and run:
+   ```sql
+   CREATE TABLE plants (
+       id SERIAL PRIMARY KEY,
+       name VARCHAR(255) NOT NULL,
+       species VARCHAR(255),
+       image_url VARCHAR(255),
+       last_watered DATE,
+       purchase_date DATE
+   );
 
-Connect to your PostgreSQL server (using the postgres user and your password).
-Right-click on "Databases" -> "Create" -> "Database...".
-Name the new database plant_tracker and click "Save".
+   GRANT ALL PRIVILEGES ON TABLE plants TO app_user;
 
-**Create Table:**
+## 3. Installing the Project
 
-Expand your plant_tracker database, then "Schemas" -> "public" -> "Tables".
-Right-click on "Tables" and select "Query Tool".
-Paste the following SQL command into the query window and execute it (lightning bolt icon):
+### Clone the repository
+git clone [https://github.com/KTKCodes/Plant-Tracker](https://github.com/KTKCodes/Plant-Tracker)
+cd plant_tracker_project/backend
 
-`CREATE TABLE plants (`  
-    `id SERIAL PRIMARY KEY,`  
-    `name VARCHAR(255) NOT NULL,`   
-    `species VARCHAR(255),`  
-    `image_url VARCHAR(255),`   
-    `last_watered DATE,`  
-    `purchase_date DATE`   
-`);`  
-
-### 3. Project Setup
-**Clone the Repository:**
-
-git clone <https://github.com/KTKCodes/Plant-Tracker>  
-cd plant_tracker_project
-
-**Navigate to Backend:**
-
-cd backend
-
-**Install Dependencies:**
-
+### Install dependencies (includes nodemon for development)
 npm install
 
-**Configure Database Credentials:**
+### Environment Configuration
 
-Open server.js in your backend folder.
+Create a file named .env in the backend folder and add your credentials there.
+Note: It is included in the .gitignore file.
 
-Locate the Pool configuration and update the user and password fields with your PostgreSQL username (likely postgres) and the password you set during installation.
-
-`const pool = new Pool({`  
-    `user: 'postgres', // Your PostgreSQL username`  
-    `host: 'localhost',`  
-    `database: 'plant_tracker',`  
-    `password: 'your_password', // Your PostgreSQL password`  
-    `port: 5432,`  
-`});`  
-
-Move Static Assets: Ensure your styles.css is in backend/public/styles/ and your myplants.js (simplified for modal only) is in backend/public/scripts/. 
-
-***
-
-## Running the Application
-**Start the Server:**
-
-From your terminal, ensure you are in the backend directory:
-
-`cd plant_tracker_project/backend`  
-
-**Run the server:**
-
-`node server.js`  
-
-You should see a message in the console: Server is running at http://localhost:3000.
-
-**Access the Application:**
-
-Open your web browser and navigate to http://localhost:3000.
-
-You should now see the Plant Tracker homepage, styled correctly. You can add new plants, and they will persist in your database and appear on the homepage!
-
-***
-
-## Usage
-- **Homepage/index/myplants:** Displays all your added plant cards and an "Add New Plant" button.
-- **Add New Plant:** Click the "Add New Plant" card to open a modal form. Fill in the details and submit to add a new plant to your collection.
-- **Plant Details:** Click on any plant card to view its individual detail page.
+```
+DB_USER=app_user
+DB_HOST=localhost
+DB_NAME=plant_tracker
+DB_PASSWORD=your_secure_password
+DB_PORT=5432
+```
+## 🔮 Roadmap
+- [ ] **Auth:** User accounts to allow multiple people to track their own collections.
+- [ ] **Notifications:** Email or browser alerts when a plant is overdue for watering.
+- [ ] **Image Upload:** Integrate Multer/AWS S3 to allow users to upload their own plant photos.
+- [ ] **Search/Filter:** Quick search by plant species or watering status.
