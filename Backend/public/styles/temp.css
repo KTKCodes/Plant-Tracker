@@ -1,0 +1,128 @@
+:root {
+  --color-background-cream: #fcf3ea;
+  --color-primary-green: #6da676;
+  --color-dark-green: #47644a;
+  --color-text-charcoal: #3d332f;
+}
+
+/*Mobile*/
+.plant-header {
+    display: grid;
+    grid-template-columns: 1fr; /*stacked*/
+    gap: 16px;
+    align-items: center;
+    padding: 5px;
+    justify-content: center;
+}
+
+.plant-name {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.plant-image {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    
+}
+
+/*Desktop*/
+@media (min-width: 768px) {
+    .plant-header{
+        grid-template-columns: 1.2fr 1fr;
+        gap: 32px
+    }
+
+    .plant-image {
+        height: 350px;
+    }
+
+}
+
+.columns-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+
+@media (min-width: 768px) {
+    .columns-container {
+        flex-direction: row;
+    }
+}
+
+/*left column*/
+
+.plant-sidebar {
+    padding: 5px;
+    width: 280px;
+    flex-shrink: 0;
+}
+
+.quick-actions {
+    margin-bottom: .75em;
+}
+
+.btn-water {
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: var(--color-primary-green);
+    color: var(--color-background-cream);
+}
+
+.btn-log {
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: var(--color-primary-green);
+    color: var(--color-background-cream);
+
+}
+
+.plant-info {
+    margin-bottom: .75em;
+}
+
+.back-link {
+
+}  
+
+
+p {
+    padding: 3px;
+}
+
+/*right column*/
+
+.plant-journal {
+    flex: 1;
+    padding: 5px;
+}
+
+.log-list {
+
+}
+
+.log-item {
+    padding: .75rem;
+    border-radius: 17px;
+    background-color: var(--color-dark-green);
+    color: var(--color-background-cream);
+    margin-bottom: .75rem;
+}
+
+.pest-alert {
+
+}
+
+.routine-care {
+
+}
+
+.log-date {
+
+}

@@ -13,9 +13,6 @@
 
 body {
   background-color: var(--color-background-cream);
-}
-
-a {
   font-family: "Roboto", sans-serif;
   text-decoration: none;
 }
