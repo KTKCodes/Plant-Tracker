@@ -21,6 +21,8 @@
     text-align: center;
     margin-bottom: 0.75rem;
     margin-top: 0.75rem;
+    font-size: 3em;
+    color: var(--color-text-charcoal);
 }
 
 .plant-image {
@@ -73,6 +75,7 @@
     border-radius: 10px;
     background-color: var(--color-primary-green);
     color: var(--color-background-cream);
+    border-color: var(--color-primary-green);
 }
 
 .btn-log {
@@ -80,6 +83,7 @@
     border-radius: 10px;
     background-color: var(--color-primary-green);
     color: var(--color-background-cream);
+    border-color: var(--color-primary-green);
 
 }
 
@@ -87,9 +91,6 @@
     margin-bottom: .75em;
 }
 
-.back-link {
-
-}  
 
 
 p {
@@ -103,10 +104,6 @@ p {
     padding: 5px;
 }
 
-.log-list {
-
-}
-
 .log-item {
     padding: .75rem;
     border-radius: 17px;
@@ -115,14 +112,3 @@ p {
     margin-bottom: .75rem;
 }
 
-.pest-alert {
-
-}
-
-.routine-care {
-
-}
-
-.log-date {
-
-}

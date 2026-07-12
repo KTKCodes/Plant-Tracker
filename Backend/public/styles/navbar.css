@@ -1,0 +1,169 @@
+
+.navbar__logo {
+  color: var(--color-dark-green);
+  font-size: 3rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar__list {
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  padding: 12px;
+}
+
+.navbar__item {
+  display: inline-block;
+}
+
+.navbar__link {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: var(--color-primary-green);
+  transition: all 0.3s ease-in-out;
+  font-style: italic;
+}
+
+.navbar__link__active {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  background-color: var(--color-primary-green);
+  border: 1px solid var(--color-dark-green);
+  border-radius: 15px;
+  text-decoration: none;
+  color: var(--color-background-cream);
+  font-weight: bold;
+}
+
+.navbar__link:hover {
+  transition: all 0.3s ease-in-out;
+  border-radius: 25px;
+  text-shadow: 0px 0px 1px var(--color-accent-terracotta);
+  font-weight: bold;
+}
+#nav-icon {
+  width: 60px;
+  height: 45px;
+  position: relative;
+  display: none;
+  cursor: pointer;
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+}
+
+/* Base styles for the 3 individual lines */
+#nav-icon span {
+  display: block;
+  position: absolute;
+  height: 9px;
+  width: 100%;
+  background: #333; /* Change this color to match your design */
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transition: .25s ease-in-out;
+  -moz-transition: .25s ease-in-out;
+  -o-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+}
+
+#nav-icon span:nth-child(1) {
+  top: 0px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+#nav-icon span:nth-child(2) {
+  top: 18px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+#nav-icon span:nth-child(3) {
+  top: 36px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+#nav-icon.open span:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  top: -3px;
+  left: 8px;
+}
+
+#nav-icon.open span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+#nav-icon.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 39px;
+  left: 8px;
+}
+
+@media (max-width: 768px) {
+  /* Hide the desktop list by default on mobile */
+  .navbar__list {
+    display: none !important; 
+    position: absolute;
+    top: 60px; 
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 0px;
+    margin: 0;
+  }
+
+  /* Show it when the hamburger is clicked */
+  .navbar__list.active {
+    display: block !important; 
+  }
+
+  /* Keep your hamburger icon visible */
+  #nav-icon {
+    display: block;
+    position: absolute;
+    right: 20px;    
+    z-index: 10;    
+  }
+  
+  /* Stack the individual list links vertically */
+  .navbar__list li {
+    display: block;
+    text-align: center;
+  }
+  
+  .navbar__list li a {
+    display: block;
+    padding: 15px;
+    color: white;
+    border-bottom: 1px solid #444;
+  }
+}

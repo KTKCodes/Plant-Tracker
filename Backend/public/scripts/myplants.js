@@ -26,4 +26,13 @@ document.addEventListener("DOMContentLoaded", () => {
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") toggleModal(false);
   });
+
+$(document).ready(function(){
+  $('#nav-icon').click(function(){
+    // Toggles the icon animation
+    $(this).toggleClass('open');
+    // Toggles the actual menu visibility
+    $('.navbar__list').toggleClass('active');
+  });
+});
 });
